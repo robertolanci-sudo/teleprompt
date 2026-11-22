@@ -117,7 +117,7 @@
   .fade.bottom { bottom: 0; height: 22%; background: linear-gradient(rgba(0,0,0,0), #000 90%); }
 
   #guide { position: absolute; left: 0; right: 0; top: var(--p-guide); height: calc(var(--p-size) * var(--p-lh));
-    transform: translateY(-15%); pointer-events: none; }
+    pointer-events: none; }
   #guide::before { content: ""; position: absolute; inset: 0; background: rgba(255,191,71,.07);
     border-top: 1px solid rgba(255,191,71,.25); border-bottom: 1px solid rgba(255,191,71,.25); }
   #guide i { position: absolute; top: 50%; width: 0; height: 0; border: 9px solid transparent; transform: translateY(-50%); }
@@ -159,8 +159,9 @@
     display: grid; place-items: center; margin: 0 4px; transition: transform .12s; }
   #playBtn:active { transform: scale(.93); }
 
-  #hint { position: absolute; left: 50%; top: 58%; transform: translate(-50%, 0); text-align: center; color: var(--muted);
-    font-size: 14px; line-height: 1.6; pointer-events: none; transition: opacity .4s; white-space: nowrap; }
+  #hint { position: absolute; left: 50%; bottom: calc(var(--sab) + 112px); transform: translateX(-50%); text-align: center;
+    color: #c9c6c0; font-size: 13px; line-height: 1.55; pointer-events: none; transition: opacity .4s; white-space: nowrap;
+    padding: 8px 16px; border-radius: 14px; background: rgba(28,28,31,.88); border: 1px solid rgba(255,255,255,.08); }
   #hint b { color: var(--text); font-weight: 600; }
 
   #countdown { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none;
@@ -174,12 +175,12 @@
   #bubble.show { opacity: 1; }
 
   /* =============== SHEET =============== */
-  #scrim { position: fixed; inset: 0; background: rgba(0,0,0,.35); opacity: 0; pointer-events: none; transition: opacity .3s; z-index: 10; }
+  #scrim { position: fixed; inset: 0; background: rgba(0,0,0,.1); opacity: 0; pointer-events: none; transition: opacity .3s; z-index: 10; }
   #sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 11; max-width: 560px; margin: 0 auto;
     background: rgba(24,24,27,.96); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px);
     border: 1px solid var(--line); border-bottom: 0; border-radius: 24px 24px 0 0;
     padding: 8px calc(var(--sar) + 20px) calc(var(--sab) + 20px) calc(var(--sal) + 20px);
-    transform: translateY(105%); transition: transform .38s cubic-bezier(.2,.9,.25,1); max-height: 70dvh; overflow-y: auto;
+    transform: translateY(105%); transition: transform .38s cubic-bezier(.2,.9,.25,1); max-height: 50dvh; overflow-y: auto;
     touch-action: pan-y; }
   body.sheet-open #scrim { opacity: 1; pointer-events: auto; }
   body.sheet-open #sheet { transform: none; }
